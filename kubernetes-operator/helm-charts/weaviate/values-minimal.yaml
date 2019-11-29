@@ -1,0 +1,17 @@
+
+#esvector
+esvector:
+  esJavaOpts: -Xmx512m -Xms512m
+  minimumMasterNodes: 1
+  replicas: 1
+  resources: 
+    requests:
+      memory: 512Mi
+      cpu: 100m
+    limits:
+      memory: 1Gi
+      cpu: 1
+
+etcd:
+  statefulset:
+    replicaCount: 1
