@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kubernetes-operator
+  name: weaviate-operator
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: kubernetes-operator
+      name: weaviate-operator
   template:
     metadata:
       labels:
-        name: kubernetes-operator
+        name: weaviate-operator
     spec:
-      serviceAccountName: kubernetes-operator
+      serviceAccountName: weaviate-operator
       containers:
-        - name: kubernetes-operator
+        - name: weaviate-operator
           # Replace this with the built image name
           image: quay.io/jcordes/weaviate-operator:v0.0.1
           imagePullPolicy: Always
@@ -28,4 +28,4 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
-              value: "kubernetes-operator"
+              value: "weaviate-operator"
